@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  
+  <meta charset="utf-8">
+  <!-- Project Meta Information -->
+  <meta name="description" content="TopoTTA: A novel test-time adaptation framework that leverages topological data analysis for structure-preserving anomaly segmentation across 2D and 3D modalities.">
+  <meta name="keywords" content="TopoTTA, Anomaly Segmentation, Test-Time Adaptation, Topological Data Analysis, Persistent Homology, Deep Learning, Computer Vision">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TopoTTA: Topology-Aware Test-Time Adaptation for Anomaly Segmentation</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Castoro" rel="stylesheet">
+
+  <!-- CSS Frameworks -->
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+  <!-- JS Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              Learning Topology-Aware Representations via Test-Time Adaptation for Anomaly Segmentation
+            </h1>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://scholar.google.com.au/citations?hl=en&user=BVBJ06QAAAAJ&view_op=list_works" target="_blank" style="text-decoration:none; color:#3273dc;">
+                  Ali Zia
+                </a><sup>†,1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=2A32xVQAAAAJ&hl=en" target="_blank" style="text-decoration:none; color:#3273dc;">
+                  Usman Ali
+                </a><sup>†,2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=A_jBBxIAAAAJ&hl=en" target="_blank" style="text-decoration:none; color:#3273dc;">
+                  Abdul Rehman
+                </a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=D3AhoccAAAAJ&hl=en" target="_blank" style="text-decoration:none; color:#3273dc;">
+                  Umer Ramzan
+                </a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=J8_Ko78AAAAJ&hl=en" target="_blank" style="text-decoration:none; color:#3273dc;">
+                  Waqas Ali
+                </a><sup>3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=VxQUr90AAAAJ&hl=en" target="_blank" style="text-decoration:none; color:#3273dc;">
+                  Wei Xiang
+                </a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>School of Computing, Engineering and Mathematical Sciences, La Trobe University, Melbourne, Australia</span><br>
+              <span class="author-block"><sup>2</sup>School of Engineering and Applied Sciences, GIFT University, Gujranwala, Pakistan</span><br>
+              <span class="author-block"><sup>3</sup>Department of Electrical Engineering (RCET), University of Engineering and Technology, Lahore, Pakistan</span>
+            </div>
+
+            <div class="is-size-6 has-text-grey mt-4">
+              <p><strong>†</strong> Equal Contribution</p>
+              <p><strong>Corresponding Author:</strong> Ali Zia (<a href="mailto:A.Zia@latrobe.edu.au">A.Zia@latrobe.edu.au</a>)</p>
+              <p><strong>Acknowledgment:</strong> This work was supported by La Trobe University, Melbourne, Australia, for providing financial support and research resources.</p>
+            </div>
+
+            <!-- Architecture / Code Link -->
+            <div class="mt-4">
+              <a href="https://github.com/EngrUsman-Ali/TopoTTA" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+            </div>
+
+            <section class="section">
+              <div class="container is-max-desktop">
+                <!-- Abstract -->
+                <div class="columns is-centered has-text-centered">
+                  <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                      <p>
+                        Test-time adaptation (TTA) has emerged as a powerful paradigm for handling distribution shifts in deep models, particularly for anomaly segmentation, where pixel-wise labels of anomalous regions are typically unavailable during training. We introduce TopoTTA (Topological Test-Time Adaptation), a novel framework that incorporates persistent homology, a tool from topological data analysis, into the TTA pipeline to enforce structural consistency in segmentation. By applying multi-level cubical complex filtration to anomaly score maps, TopoTTA generates robust topological pseudo-labels that guide a lightweight test-time classifier, enhancing binary segmentation quality without retraining the backbone model. Our method eliminates the need for heuristic thresholding and generalises across both 2D and 3D modalities. Extensive experiments on five standard benchmarks (MVTec AD, VisA, Real-IAD, MVTec 3D-AD, AnomalyShapeNet) demonstrate significant improvements over state-of-the-art test-time unsupervised anomaly detection and segmentation methods in terms of F1 score, particularly on anomalies with complex geometries.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- /Abstract -->
+              </div>
+            </section>
+            <hr style="border: none; border-top: 1px solid rgba(0, 0, 0, 0.1); margin: 40px 0;">
+
+            <div class="publication-image mt-6">
+                    <h2 class="title is-3">Pipeline</h2>
+
+              <img src="static/arch.png" alt="Overview of the TopoTTA Architecture" style="width: 100%; height: auto; border-radius: 8px;">
+              <p class="has-text-grey is-size-6 mt-2">
+                <em>Overview of the TopoTTA architecture. Given a test image I, an AD&S method produces an anomaly score map Ψ. 
+                A pre-trained feature extractor F generates dense feature maps from I. Topological pseudo-labels are extracted by applying multi-level cubical complex filtrations (both sublevel and superlevel) to Ψ, producing structurally meaningful binary masks via persistent homology. These masks are fused using IoU to generate sparse pseudo-labels. A lightweight classifier is then trained on selected feature points from F(I) using these labels and applied across the full feature map to produce a refined binary anomaly segmentation. This test-time adaptation pipeline exploits both intensity-based cues and topological structure to improve segmentation robustness and generalisation.</em>
+              </p>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid rgba(0, 0, 0, 0.1); margin: 40px 0;">
+
+            <div class="publication-image mt-6">
+            <h2 class="title is-3">Qualitative Comparison</h2>
+              <img src="static/main.png" alt="Quantitative Comparison of TopoTTA accross all methods." style="width: 100%; height: auto; border-radius: 8px;">
+              <p class="has-text-grey is-size-6 mt-2">
+                <em>Comparison of binary segmentation results. Best results in <strong>bold</strong>; second-best in <span style="color: blue;">blue</span>.</em>
+              </p>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid rgba(0, 0, 0, 0.1); margin: 40px 0;">
+
+            <div class="publication-image mt-6">
+              <h2 class="title is-3">2D Datasets Qualitative Comparison</h2>
+              <img src="static/2d.png" alt="Qualitative Comparison of TopoTTA" style="width: 80%; height: 80%; border-radius: 8px;">
+              <p class="has-text-grey is-size-6 mt-2">
+                <em>Qualitative comparison across MVTec AD, VisA, and Real-IAD. Columns: RGB, Ground Truth, anomaly heat map, simple thresholding (THR), TTT4AS, and our TopoTTA. TopoTTA produces sharper, topologically consistent anomaly segmentations across diverse categories and datasets.</em>
+              </p>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid rgba(0, 0, 0, 0.1); margin: 40px 0;">
+
+            <div class="publication-image mt-6">
+              <h2 class="title is-3">3D Mvtec AD Qualitative Comparison</h2>
+              <img src="static/3d.png" alt="Qualitative Comparison of TopoTTA 3D" style="width: 100%; height: 100%; border-radius: 8px;">
+              <p class="has-text-grey is-size-6 mt-2">
+                <em>Qualitative comparison of AD\&S methods for different objects using on 3D MvTec AD Dataset.</em>
+              </p>
+            </div>
+
+          </div> <!-- /.column -->
+        </div> <!-- /.columns -->
+      </div> <!-- /.container -->
+    </div> <!-- /.hero-body -->
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website, we just ask that you link back to this page in the footer. Please remember to remove the analytics code included in the header of the website which you do not want on your website.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
